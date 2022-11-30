@@ -41,18 +41,7 @@
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="sobre.php">Sobre nós</a>
                 </li>
-                <li class="nav-item dropdown conta">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <img src="images/account.png" style="width: 20px"><?php
-                        echo $_SESSION['usuario']['username'];
-                     ?>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="https://centroeducaead.com.br">Ir para o AVA</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="login.php">Sair</a>
-                    </div>
-                </li>
+               
                 
                 
             </div>
@@ -96,54 +85,15 @@
     <section>
       <div class="linha flex">
             <div class="coluna">
-                    <?php
-                    if (isset($_GET['pesquisa'])) {
-                      $pesquisa = $_GET['pesquisa'];
-                    }else{
-                      $pesquisa = '';
-                    }
                     
-                    setlocale(LC_ALL,'pt_BR.UTF8');
-                        mb_internal_encoding('UTF8'); 
-                        mb_regex_encoding('UTF8');
-                      include 'conectbd.php';
-                        if (empty($_GET['pag'])) {
-                          $pagina = 1;
-                        }else{
-                          $pagina = $_GET['pag'];
-                        }
-                        
-                        $exibir = 16;
-                      $query = "select * from livros where nome like'%".$pesquisa."%'";
-                      $exec = mysqli_query($conexao, $query);
-                      $numerolivros = mysqli_num_rows($exec);
-                      echo "Exibindo pagina ".$pagina." de ".ceil($numerolivros/$exibir);
-                      
-                    ?>
             </div>
           </div>
           <div class="linha flexspacearound navLivros">
             <div class="coluna col6" >
-                    <?php
-
-
-                      $anterior = $pagina -1;
-                      $proximo = $pagina +1;
-                      echo "<p>";
-                      if ($pagina>1) {
-                        echo " <a href='?pag=$anterior'>Anterior</a> ";
-                      }
-                    ?>  
+                      
             </div>
             <div class="coluna col6" style="text-align: right;">
-                    <?php
-                    echo "<p>";
-                      if ($pagina<mysqli_num_rows($exec)/$exibir) {
-                        echo " <a href='?pag=$proximo'>Próxima</a>";
-                      }
                     
-                      
-                    ?>
             </div>
           </div>
     </section>
@@ -154,36 +104,7 @@
           
           
        
-                      <?php
-                        
-                        //Carrega os livros
-                        $pc = $pagina-1;
-
-                        $query = "select * from livros where nome like'%".$pesquisa."%'";
-                        $exec = mysqli_query($conexao, $query);
-                        $linha = "";
-                        if(mysqli_num_rows($exec) > $pc*$exibir && $pagina>0){
-                          mysqli_data_seek($exec, $pc*$exibir);
-                          $indice = 0;
-
-
-                          while ($row_livro = mysqli_fetch_array($exec)) {
-                            if ($indice < $exibir) {
-                              $linha .= "<div class='itemLivro' onclick=\"livroMore('".$row_livro['id']."')\">
-                            <img src='files/capas/".$row_livro['capa']."' />
-                            <p>".$row_livro['nome']."</p>
-                          
-                            </div>";
-                            $indice ++;
-                            }
-                          
-                          }
-                          echo $linha;
-
-                        }else{
-                          echo "pagina nao existe";
-                        }
-                        ?>  
+                      
                       
 
       </div>  
@@ -191,26 +112,10 @@
    <section>
       <div class="linha flexspacearound navLivros">
               <div class="coluna col6">
-                    <?php
-
-
-                      $anterior = $pagina -1;
-                      $proximo = $pagina +1;
-                      echo "<p>";
-                      if ($pagina>1) {
-                        echo " <a href='?pag=$anterior'>Anterior</a> ";
-                      }
-                    ?>  
+                    
               </div>
               <div class="coluna col6" style="text-align: right;">
-                    <?php
-                    echo "<p>";
-                      if ($pagina<mysqli_num_rows($exec)/$exibir) {
-                        echo " <a href='?pag=$proximo'>Próxima</a>";
-                      }
                     
-                      
-                    ?>
               </div>       
             </div>
           </div>
