@@ -20,7 +20,7 @@
           Language:
           <select name="language" id="languageSelector">
             <option value="ptbr">Pt-br</option>
-            <option value="en">En</option>
+            <option value="en" selected>En</option>
           </select>
         </div>
       </div>
@@ -43,7 +43,7 @@
             <div id="consoleText">
               C:\Users><br>
               <label id="type" style="display: none;">
-                - Olá, eu sou desenvolvedora e ilustradora, saiba mais sobre meu trabalho aqui
+                - Hi, I'm a developer and illustrator, learn more about my work here
               </label>
             </div>
           </div>
@@ -61,8 +61,8 @@
                 <img src="images/javascript.png">
                 <img src="images/java.png">
               </div>
-            <h2>Meu portfólio de codigos</h2>
-            <p>Veja meus códigos que acho interessante e posto no meu github</p>
+            <h2>My code portfolio</h2>
+            <p>See my codes that I find interesting and post them on my github</p>
             <img src="images/personagem2homepage.png">
           </div>
         </div>
@@ -77,10 +77,10 @@
               <button class='btnScroll' id="ant"><img src="images/btnScrollleft.png" id="arrowright"></button>
             </div>
             <div id="projects">
-              <div class="project"><h2>pdf-reader-with-pdfjs</h2><p>Um leitor web de PDF em javascript e css</p><a href="https://github.com/sheiely/pdf-reader-with-pdfjs">Acessar</a></div>
-              <div class="project"><h2>chat-with-node-js-and-socket-io</h2><p>Um chat web feito com node.js e socket.io</p><a href="https://github.com/sheiely/chat-with-node-js-and-socket-io">Acessar</a></div>
-              <div class="project"><h2>medical-clinic-system-in-java</h2><p>Projeto de sistema para clínica médica utilizando java e MySQL</p><a href="https://github.com/sheiely/medical-clinic-system-in-java">Acessar</a></div>
-              <div class="project inwork"><h2>Pare, em construção</h2><img src="images/personagem3homepage.png"></div>
+              <div class="project"><h2>pdf-reader-with-pdfjs</h2><p>A web PDF reader in javascript and css</p><a href="https://github.com/sheiely/pdf-reader-with-pdfjs">Go</a></div>
+              <div class="project"><h2>chat-with-node-js-and-socket-io</h2><p>A web chat made with node.js and socket.io</p><a href="https://github.com/sheiely/chat-with-node-js-and-socket-io">Go</a></div>
+              <div class="project"><h2>medical-clinic-system-in-java</h2><p>System project for medical clinic using java and MySQL</p><a href="https://github.com/sheiely/medical-clinic-system-in-java">Go</a></div>
+              <div class="project inwork"><h2>Stop, under construction</h2><img src="images/personagem3homepage.png"></div>
             </div>
             <div class='divBtnScroll'>
               
@@ -94,7 +94,7 @@
     </section>
     <contact>
       <div>
-        <h2>Contato:</h2>
+        <h2>Contact:</h2>
         <p><img src="images/githubIcon.png"><label>Github:</label><a href="https://github.com/sheiely">https://github.com/sheiely</a></p>
         <p><img src="images/linkedinIcon.png"><label>LinkedIn:</label><a href="https://www.linkedin.com/in/sheiely-do-%C3%B3-38a938244">https://www.linkedin.com/in/sheiely-do-%C3%B3-38a938244</a></p>
         <p><img src="images/emailIcon.png"><label>Email:</label> sheielynascimento@gmail.com</p>
@@ -111,8 +111,8 @@
     var languageSelector = document.getElementById('languageSelector');
     var projectId = 1;
     $('#languageSelector').on("change", function(){
-      if(languageSelector.options[languageSelector.selectedIndex].text == 'En'){
-        window.location.href = "indexEN.html";
+      if(languageSelector.options[languageSelector.selectedIndex].text == 'Pt-br'){
+        window.location.href = "index.html";
       }
     });
     disableBtns();
