@@ -29,34 +29,35 @@
     var keypressed = 0;
     
     function start(){
-        
-        var canvas = document.getElementById("anacabralgame");
-        var ctx = canvas.getContext("2d");
-        
-        setInterval(draw, 500);
-        function draw(){
-            if(keypressed == 87 && (posY - tam >= 0)){
-                posY-=tam;
-            }else
-            if(keypressed == 83 && (posY + tam <= 500-tam)){
-                posY+=tam;
-            }else
-            if(keypressed == 68 && (posX + tam <= 500-tam)){
-                posX+=tam;
-            }else
-            if(keypressed == 65 && (posX - tam >= 0)){
-                posX-=tam;
+        if(window.innerWidth <= 800 && window.innerHeight <= 600){
+            var canvas = document.getElementById("anacabralgame");
+            var ctx = canvas.getContext("2d");
+            
+            setInterval(draw, 500);
+            function draw(){
+                if(keypressed == 87 && (posY - tam >= 0)){
+                    posY-=tam;
+                }else
+                if(keypressed == 83 && (posY + tam <= 500-tam)){
+                    posY+=tam;
+                }else
+                if(keypressed == 68 && (posX + tam <= 500-tam)){
+                    posX+=tam;
+                }else
+                if(keypressed == 65 && (posX - tam >= 0)){
+                    posX-=tam;
+                }
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "black";
+                ctx.fillRect(posX, posY, tam, tam);
+                ctx.fillStyle = "red";
+                if(Math.abs(posX - posXA) < 100 && Math.abs(posY - posYA) < 100){
+                    posYA = (Math.random() * (20 - 0))*25;
+                    posXA = (Math.random() * (20 - 0))*25;
+                }
+                ctx.fillRect(posXA, posYA, tam, tam);
+                keypressed = 0;
             }
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "black";
-            ctx.fillRect(posX, posY, tam, tam);
-            ctx.fillStyle = "red";
-            if(Math.abs(posX - posXA) < 100 && Math.abs(posY - posYA) < 100){
-                posYA = (Math.random() * (20 - 0))*25;
-                posXA = (Math.random() * (20 - 0))*25;
-            }
-            ctx.fillRect(posXA, posYA, tam, tam);
-            keypressed = 0;
         }
     }
 
