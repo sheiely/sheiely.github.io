@@ -9,9 +9,12 @@
     #anacabralgame{
         border: solid 5px;
     }
+    #full{
+        display: none;
+    }
 </style>
 <body onload="start()">
-    <div id="full" style="display: none;">
+    <div id="full" >
         <div class="wrapCenter">
             Olá esse é o joguinho da ana cabral se vc pegar o quadrado vermelho vai ter que namorar cmg(seu maior pesadelo)
             <p>controles - > W - A - S - D
@@ -30,7 +33,10 @@
     var posYA = 425;
     var posXA = 425;
     var keypressed = 0;
-    if(window.innerWidth >= 800 && window.innerHeight >= 600){
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+    if(window.innerWidth >= 800 && window.innerHeight >= 500){
+        console.log("opa");
         document.getElementById("full").style.display = "block";
     }
     function start(){
