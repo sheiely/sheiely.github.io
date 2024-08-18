@@ -11,13 +11,16 @@
     }
 </style>
 <body onload="start()">
-    <div class="wrapCenter">
-        Olá esse é o joguinho da ana cabral se vc pegar o quadrado vermelho vai ter que namorar cmg(seu maior pesadelo)
-        <p>controles - > W - A - S - D
+    <div id="full" style="display: none;">
+        <div class="wrapCenter">
+            Olá esse é o joguinho da ana cabral se vc pegar o quadrado vermelho vai ter que namorar cmg(seu maior pesadelo)
+            <p>controles - > W - A - S - D
+        </div>
+        <canvas id="anacabralgame" width="500" height="500">
+            teste teste
+        </canvas>
     </div>
-    <canvas id="anacabralgame" width="500" height="500">
-        teste teste
-    </canvas>
+    
 </body>
 <script>
     var tam = 25;
@@ -27,9 +30,11 @@
     var posYA = 425;
     var posXA = 425;
     var keypressed = 0;
-    
+    if(window.innerWidth <= 800 && window.innerHeight <= 600){
+        document.getElementById("full").style.display = "block";
+    }
     function start(){
-        if(window.innerWidth <= 800 && window.innerHeight <= 600){
+        
             var canvas = document.getElementById("anacabralgame");
             var ctx = canvas.getContext("2d");
             
@@ -58,7 +63,7 @@
                 ctx.fillRect(posXA, posYA, tam, tam);
                 keypressed = 0;
             }
-        }
+        
     }
 
     onkeydown = (event) => {
